@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<!--<title>{{title}}</title>-->
+
+	<!-- General META -->
+	<meta charset="utf-8">
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="fragment" content="!" />
+	<base href="/"/>
+
+
+	<!--Application CSS Files-->
+	<!--{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}-->
+	<link rel="stylesheet" href="dist/core.css  ">
+	<!-- HTML5 Shim -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body >
+
+
+
+
+<section class="content">
+	<section class="container">
+		<h1>It's working!</h1>
+		<!--{% block content %}{% endblock %}-->
+		<div id="mount-node"></div>
+	</section>
+</section>
+
+<!--Embedding The User Object-->
+<script type="text/javascript">
+//	var user = {{ user | json | safe }};
+</script>
+
+<!--Load The Socket.io File-->
+<!--<script type="text/javascript" src="/socket.io/socket.io.js"></script>-->
+<!--<script type="text/javascript" src="/js/test.js"></script>-->
+<script type="text/javascript" src="/dist/application.js"></script>
+
+<!--Application JavaScript Files-->
+<!--{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}-->
+
+<!--{% if process.env.NODE_ENV === 'development' %}-->
+<!--Livereload script rendered -->
+<!--<script type="text/javascript" src="{{host}}:35729/livereload.js"></script>-->
+<!--{% endif %}-->
+
+<!-- Google Analytics -->
+<!--<script>-->
+	<!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
+		<!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
+		<!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
+	<!--})(window,document,'script','//www.google-analytics.com/analytics.js','ga');-->
+
+	<!--ga('create', '{{googleAnalyticsTrackingID}}', 'auto');-->
+	<!--ga('send', 'pageview');-->
+<!--</script>-->
+</body>
+
+</html>
