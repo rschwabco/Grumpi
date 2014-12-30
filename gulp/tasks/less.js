@@ -1,7 +1,7 @@
-
 var gulp = require('gulp'),
   less = require('gulp-less'),
   sourcemaps = require('gulp-sourcemaps'),
+  livereload = require('gulp-livereload'),
   handleErrors = require('../util/handleErrors'),
   config =  {
         src: './application/core/client/styles/less/core.less',
@@ -14,5 +14,7 @@ gulp.task('styles', function() {
       .pipe(less())
       .on('error', handleErrors)
       .pipe(sourcemaps.write())
-      .pipe(gulp.dest(config.dest));
+      .pipe(gulp.dest(config.dest))
+      .pipe(livereload())
+
 });

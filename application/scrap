@@ -1,0 +1,1 @@
+<LeftNav docked={this.state.isDocked} menuItems={menuItems} />

@@ -39,6 +39,7 @@
     "gulp-flatten": "0.0.2",
     "gulp-jasmine": "^0.3.0",
     "gulp-less": "^2.0.1",
+    "gulp-livereload": "^3.0.2",
     "gulp-nodemon": "^1.0.4",
     "gulp-notify": "^1.4.1",
     "gulp-open": "^0.2.8",
