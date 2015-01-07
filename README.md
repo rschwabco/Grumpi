@@ -1,0 +1,8 @@
+# Grumpi
+Reactive FSJS - Node, Rethink, Hapi, React, Gulp
+
+#DO NOT USE
+##UNDER HEAVY DEVELOPMENT.
+###BROKEN
+####THIS IS A REALLY BAD IDEA.
+#####REALLY, YOU REALLY DON'T WANT TO USE THIS YET.
