@@ -13,64 +13,106 @@ var React = require('react'),
 	ToolbarGroup = mui.ToolbarGroup,
 	AppBar = mui.AppBar,
 	AppCanvas = mui.AppCanvas,
-DropDownMenu = mui.DropDownMenu;
+	DropDownMenu = mui.DropDownMenu;
+
+var Router = require('react-router'),
+ 		DefaultRoute = Router.DefaultRoute,
+ 		Link = Router.Link,
+ 		Route = Router.Route,
+ 		RouteHandler = Router.RouteHandler;
+
+var Dashboard = require('./components/step.jsx');
+
+var injectTapEventPlugin = require("react-tap-event-plugin");
+
 
 
 var menuItems = [
-	{ route: 'get-started', text: 'Get Started' },
-	{ route: 'css-framework', text: 'CSS Framework' },
 	{ route: 'components', text: 'Components' },
-	{ type: MenuItem.Types.SUBHEADER, text: 'Resources' },
-	{
-		type: MenuItem.Types.LINK,
-		payload: 'https://github.com/callemall/material-ui',
-		text: 'GitHub'
-	},
+	{ type: MenuItem.Types.SUBHEADER, text: 'Resources' }
 ];
 
 
-
-
-var Comp = React.createClass({
+var App = React.createClass({
 	getInitialState: function(){
 		return {
 			isDocked: false
 		}
 	},
-	render: function() {
-		var isDocked= false;
-		return (
-			<AppCanvas predefinedLayout={1} >
+	_onMenuIconButtonTouchTap: function(){
+			this.refs.leftNav.toggle();
+	},
+  render: function () {
+		injectTapEventPlugin();
+		var appStyle = {
+			position: 'fixed',
+			top: '65px',
+			padding: '5px'
+		};
+    return (
+			<AppCanvas predefinedLayout={1}>
 
 				<AppBar
 					className="mui-dark-theme"
-					title="Rethink - Hapi - React!"
+					title="Scholar"
 					showMenuIconButton={true}
 					onMenuIconButtonTouchTap={this._onMenuIconButtonTouchTap}
 					zDepth={0}>
 				</AppBar>
-
-				<LeftNav ref="leftNav" docked={false} menuItems={menuItems} />
+				<LeftNav ref="leftNav" docked={false} menuItems={menuItems}/>
+				<div className='app-view' style={appStyle}>
+					<RouteHandler/>
+				</div>
 
 			</AppCanvas>
-
-		)
-	},
-
-	_onMenuIconButtonTouchTap: function(){
-		this.refs.leftNav.toggle();
-	}
-
+    );
+  }
 });
 
-module.exports = Comp;
-
-React.render(
-	<Comp />,
-	document.getElementById('mount-node')
+var routes = (
+  <Route name="app" path="/" handler={App}>
+    <DefaultRoute handler={Dashboard}/>
+  </Route>
 );
 
+Router.run(routes, function (Handler) {
+  React.render(<Handler/>, document.body);
+});
 
-
-
-
+// var Root = React.createClass({
+// 	getInitialState: function(){
+// 		return {
+// 			isDocked: false
+// 		}
+// 	},
+// 	render: function() {
+// 		var isDocked= false;
+// 		return (
+// 			<AppCanvas predefinedLayout={1}>
+//
+// 				<AppBar
+// 					className="mui-dark-theme"
+// 					title="Scholar"
+// 					showMenuIconButton={true}
+// 					onMenuIconButtonTouchTap={this._onMenuIconButtonTouchTap}
+// 					zDepth={0}>
+// 				</AppBar>
+// 				<LeftNav ref="leftNav" docked={false} menuItems={menuItems}/>
+//
+// 			</AppCanvas>
+//
+// 		)
+// 	},
+//
+// 	_onMenuIconButtonTouchTap: function(){
+// 		this.refs.leftNav.toggle();
+// 	}
+//
+// });
+//
+// module.exports = Root;
+//
+// React.render(
+// 	<Root />,
+// 	document.getElementById('mount-node')
+// );

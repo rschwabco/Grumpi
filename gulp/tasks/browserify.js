@@ -16,6 +16,9 @@ gulp.task('browserify', function() {
 		entries: ['./application/application-root.js'],
 		// Add file extentions to make optional in your requires
 		extensions: [],
+		alias: [
+			__dirname  + '/application/components:components'
+		],
 		// Enable source maps!
 		debug: true
 	};
@@ -23,4 +26,3 @@ gulp.task('browserify', function() {
 	return buildBundle(bundleConfig, 'application.js', 'public/dist/');
 
 });
-

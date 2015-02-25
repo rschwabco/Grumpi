@@ -6,13 +6,20 @@
 
 var React = require('react'),
 		mui = require('material-ui'),
-		RaisedButton = mui.RaisedButton;
+		RaisedButton = mui.RaisedButton,
+    TextField = mui.TextField;
 
 var Comp = React.createClass({
 
 	render: function() {
 		return (
-			<RaisedButton label="Default" />
+      <div>
+        <TextField
+          hintText="Step Name"
+          floatingLabelText="Example Text"
+        ></TextField>
+  			<RaisedButton label="Default" />
+      </div>
 		);
 	}
 

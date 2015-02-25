@@ -14,9 +14,11 @@
     "hapi": "^8.0.0",
     "hapi-assets": "^0.2.1",
     "hapi-react-views": "^1.2.3",
-    "material-ui": "^0.4.0",
+    "level": "^0.18.0",
+    "material-ui": "^0.7.0",
     "moment": "^2.8.4",
     "react": "^0.12.2",
+    "react-router": "^0.12.2",
     "reactify": "^0.17.1",
     "require-alias": "^1.0.5",
     "rethinkdb": "^1.15.0-0",
@@ -58,6 +60,7 @@
     "moment": "^2.8.1",
     "pretty-hrtime": "^0.2.1",
     "reactify": "^0.17.1",
+    "remapify": "^1.4.4",
     "sinon": "^1.9.1",
     "vinyl-source-stream": "^0.1.1"
   }

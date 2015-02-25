@@ -5,13 +5,21 @@ var handleErrors = require('./handleErrors');
 var source       = require('vinyl-source-stream');
 var exposify     = require('exposify');
 var reactify     = require('reactify');
-
+var remapify     = require('remapify');
 exposify.config = { react: 'React'};
 
 function buildBundle(bundleConfig, outFile, outFldr, watch, options) {
   var bundleMethod = watch && global.isWatching ? watchify : browserify;
   var bundler = bundleMethod(bundleConfig);
 
+
+  bundler.plugin(remapify, [
+    {
+      src: './application/components/*.jsx' // glob for the files to remap
+      , expose: 'components'
+      , cwd: __dirname // defaults to process.cwd()
+    }
+  ])
   bundler.transform(reactify);
 
   var bundle = function() {
